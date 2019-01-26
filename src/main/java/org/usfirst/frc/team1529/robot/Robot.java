@@ -248,65 +248,67 @@ public class Robot extends TimedRobot {
 		System.out.println(m_oi.Operator.getRawAxis(1));
 		System.out.println(Robot.kDriveTrainSubsystem.gyro.getAngle());
 		
-		
+		      
 		//drivetrain
-			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,-m_oi.driverL.getRawAxis(1));
-			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, -m_oi.driverL.getRawAxis(1));
-			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, m_oi.driverL.getRawAxis(5));
-			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, m_oi.driverL.getRawAxis(5));
+
+
+			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) - ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) + ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) + ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) - ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
 			
 //			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(1));
 //			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(1));
-//			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(5));
+//			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(5));   
 //			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(5));
 //		
 		
 		
 		//hand rotation
-		// 	if(Robot.m_oi.rJoystickUp.get())
-		// 	{
-		// 		/* this is to lift arms so hooks can engage */
-		// 		Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, .60);
-		// 		//this.kHandSubsystem.HandRotate.set(controlmode., arg1);
-		// 	}
-		// 	else if(Robot.m_oi.rJoystickDown.get())
-		// 	{
-		// 			/* this is to lower arms into cube pickup/grab position */
-		// 			Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, -.60);
-		// 	}
-		// 	else
-		// 	{
-		// 		Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, 0);
-		// 	}
+			if(Robot.m_oi.ButtonA.get())
+			{
+				/* this is to lift arms so hooks can engage */
+				Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, .60);
+				//this.kHandSubsystem.HandRotate.set(controlmode., arg1);
+			}
+			else if(Robot.m_oi.ButtonB.get())
+			{
+					/* this is to lower arms into cube pickup/grab position */
+					Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, -.60);
+			}
+			else
+			{
+				Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, 0);
+			}
 		
 			
-		// //intake wheels	
-		// 			if(m_oi.intakeIn.get()){
-		// 				Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, .6);
-		// 				Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, -.6);
-		// 				}
-		// 					else if((m_oi.intakeOut.get())){
-		// 						Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, -.6);
-		// 						Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, .6);
-		// 					}
-		// 							else{
-		// 								Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, 0);
-		// 								Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, 0);
-		// 							}
+		//intake wheels	
+					if(m_oi.ButtonX.get()){
+						Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, .6);
+						Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, -.6);
+						}
+							else if((m_oi.ButtonY.get())){
+								Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, -.6);
+								Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, .6);
+							}
+									else{
+										Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, 0);
+										Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, 0);
+									}
 				
 			
 			
 		//intake arms	
-// 			if(m_oi.handOpen.get()){
-// 				Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
+			if(m_oi.ButtonLB.get()){
+				Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
 				
-// 			}
-// 				else if(m_oi.handClose.get()){
-// 					Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kReverse);
-// 				}
-// //					else
-// //						Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
-// //					
+			}
+				else if(m_oi.ButtonRB.get()){
+					Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kReverse);
+				}
+//					else
+//						Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
+//					
 
 			
 		//led junk

@@ -33,20 +33,20 @@ public class OI {
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 	 public Joystick leftStick = new Joystick(0);
-//	public Joystick driverL = new Joystick(0);
-//	public Joystick Operator = new Joystick(5);
-//	public JoystickButton ButtonA = new JoystickButton(Operator, 1);
-//	public JoystickButton ButtonB = new JoystickButton(Operator, 2);
-//	public JoystickButton ButtonX = new JoystickButton(Operator, 3);
-//	public JoystickButton ButtonY = new JoystickButton(Operator, 4);
-//	public JoystickButton ButtonLB = new JoystickButton(Operator, 5);
-//	public JoystickButton ButtonRB = new JoystickButton(Operator, 6);
-//	public JoystickButton ButtonSelect = new JoystickButton(Operator, 7);
-//	public JoystickButton ButtonStart = new JoystickButton(Operator, 8);
+	public Joystick driverL = new Joystick(0);
+	public Joystick Operator = new Joystick(1);
+	public JoystickButton ButtonA = new JoystickButton(Operator, 1);
+	public JoystickButton ButtonB = new JoystickButton(Operator, 2);
+	public JoystickButton ButtonX = new JoystickButton(Operator, 3);
+	public JoystickButton ButtonY = new JoystickButton(Operator, 4);
+	public JoystickButton ButtonLB = new JoystickButton(Operator, 5);
+	public JoystickButton ButtonRB = new JoystickButton(Operator, 6);
+	public JoystickButton ButtonSelect = new JoystickButton(Operator, 7);
+	public JoystickButton ButtonStart = new JoystickButton(Operator, 8);
 			// TODO Auto-generated constructor stub
 	//public Joystick rightStick = new Joystick(1);
-	public Joystick Operator = new Joystick(2);
-	public Button Operator2 = new JoystickButton(Operator,1);
+	//public Joystick Operator = new Joystick(2);
+	//public Button Operator2 = new JoystickButton(Operator,1);
 	// LIFT
 	// public Button rJoystickDown = new JoystickButton(Operator, 1);
 	// public Button rJoystickUp = new JoystickButton(Operator, 2);
