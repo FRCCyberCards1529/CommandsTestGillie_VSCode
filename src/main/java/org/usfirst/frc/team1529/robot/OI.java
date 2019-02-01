@@ -33,7 +33,8 @@ public class OI {
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 	 public Joystick leftStick = new Joystick(0);
-	public Joystick driverL = new Joystick(0);
+	//Xbox code works
+	 public Joystick driverL = new Joystick(0);
 	public Joystick Operator = new Joystick(1);
 	public JoystickButton ButtonA = new JoystickButton(Operator, 1);
 	public JoystickButton ButtonB = new JoystickButton(Operator, 2);
@@ -44,6 +45,9 @@ public class OI {
 	public JoystickButton ButtonSelect = new JoystickButton(Operator, 7);
 	public JoystickButton ButtonStart = new JoystickButton(Operator, 8);
 			// TODO Auto-generated constructor stub
+	//Joystick code
+	//Removed to add xbox support
+
 	//public Joystick rightStick = new Joystick(1);
 	//public Joystick Operator = new Joystick(2);
 	//public Button Operator2 = new JoystickButton(Operator,1);

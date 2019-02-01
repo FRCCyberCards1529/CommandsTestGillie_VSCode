@@ -35,10 +35,10 @@ public class AutoTurnCommand extends Command {
     	Robot.kDriveTrainSubsystem.gyro.getAngle();
     	
     	if(direction.equals("right")){
-    		Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, speed);
+    		Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,speed);
     		Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, speed);
     		
-    		Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, speed);
+    		Robot.kDriveTrainSubsystem.FrontRight.set(speed);
     		Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, speed);
     		if (Robot.kDriveTrainSubsystem.gyro.getAngle() > turnAngle){
     			isFinished = true;
@@ -46,10 +46,9 @@ public class AutoTurnCommand extends Command {
     	}
     	else if (direction.equals("left")){
     		Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, -speed);
-    		Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, -speed);
     		
-    		Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, -speed);
-    		Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, -speed);
+    		Robot.kDriveTrainSubsystem.FrontRight.set(-speed);
+    		Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput,-speed);
     		if (Robot.kDriveTrainSubsystem.gyro.getAngle() < turnAngle){
     			isFinished = true;
     		}

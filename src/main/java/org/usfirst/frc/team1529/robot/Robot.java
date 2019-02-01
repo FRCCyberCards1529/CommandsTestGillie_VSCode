@@ -235,8 +235,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Left Encoder", kDriveTrainSubsystem.enc.getDistance());
 		SmartDashboard.putNumber("Right Encoder", kDriveTrainSubsystem.altEnc.getDistance());
 		SmartDashboard.putNumber("Climb Encoder", kDriveTrainSubsystem.climbEnc.getDistance());
-		SmartDashboard.putNumber("Front Right Motor Voltage", kDriveTrainSubsystem.FrontRight.getMotorOutputVoltage());
-		SmartDashboard.putNumber("Front Left Motor Voltage", kDriveTrainSubsystem.FrontLeft.getMotorOutputVoltage());
+		//SmartDashboard.putNumber("Front Right Motor Voltage", kDriveTrainSubsystem.FrontRight.getMotorOutputVoltage());
+		//SmartDashboard.putNumber("Front Left Motor Voltage", kDriveTrainSubsystem.FrontLeft.getMotorOutputVoltage());
 		SmartDashboard.putNumber("Rear Right Motor Voltage", kDriveTrainSubsystem.RearRight.getMotorOutputVoltage());
 		SmartDashboard.putNumber("Rear Left Motor Voltage", kDriveTrainSubsystem.RearLeft.getMotorOutputVoltage());
 		SmartDashboard.putNumber("Gyro", kDriveTrainSubsystem.gyro.getAngle());
@@ -252,10 +252,10 @@ public class Robot extends TimedRobot {
 		//drivetrain
 
 
-			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) - ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
-			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) + ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
-			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) + ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
-			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) - ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
+			//Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,((-m_oi.leftStick.getRawAxis(1))) - ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
+			//Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) + ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.FrontRight.set(((m_oi.leftStick.getRawAxis(1))) + ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
+			//Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) - ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
 			
 //			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(1));
 //			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(1));

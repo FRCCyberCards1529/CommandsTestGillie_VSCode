@@ -23,6 +23,10 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkMax.*;
+
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
@@ -42,10 +46,21 @@ public class DriveTrainSubsystem extends Subsystem {
 	
 	public double SpeedModifier = 1;
 	
-	public WPI_VictorSPX FrontLeft = new WPI_VictorSPX(13);
+//	public WPI_VictorSPX FrontLeft = new WPI_VictorSPX(13);
 	public WPI_VictorSPX RearLeft  = new WPI_VictorSPX(16);
-	public WPI_VictorSPX FrontRight = new WPI_VictorSPX(21);
-	public WPI_VictorSPX RearRight = new WPI_VictorSPX(20);
+	public WPI_VictorSPX FrontLeft = new WPI_VictorSPX(13);
+	public WPI_VictorSPX RearRight = new WPI_VictorSPX(21);
+
+	//CANSparkMax Code
+	//public static final CANSparkMax.InputMode kPWM;
+	public CANSparkMax FrontRight = new CANSparkMax(20, MotorType.kBrushless);
+
+
+
+
+
+
+
 	public Spark LED = new Spark(0);
 	
 	private SpeedControllerGroup left = new SpeedControllerGroup(FrontLeft, RearLeft), right = new SpeedControllerGroup(FrontRight,RearRight);
@@ -74,21 +89,21 @@ public class DriveTrainSubsystem extends Subsystem {
 	
 	public void autoDrive(double speed, double distance) {
 		if(enc.getDistance() < distance) {
-			
-			FrontLeft.set(ControlMode.PercentOutput, speed);
+		
+			FrontLeft.set(ControlMode.PercentOutput,speed);
 			RearLeft.set(ControlMode.PercentOutput, speed);
 			
-			FrontRight.set(ControlMode.PercentOutput, -speed);
+			FrontRight.set(-speed);
 			RearRight.set(ControlMode.PercentOutput, -speed);
 			
         }
 	}
 	
 	public void stop() {
-		FrontLeft.set(ControlMode.PercentOutput, 0);
+		FrontLeft.set(0.0);
 		RearLeft.set(ControlMode.PercentOutput, 0);
 		
-		FrontRight.set(ControlMode.PercentOutput, 0);
+		FrontLeft.set(0);
 		RearRight.set(ControlMode.PercentOutput, 0);
 		
 	}
@@ -98,10 +113,10 @@ public class DriveTrainSubsystem extends Subsystem {
 		
 	}
 	public void drive(double left, double right){
-		FrontLeft.set(ControlMode.PercentOutput, left *  -SpeedModifier);
-		RearLeft.set(ControlMode.PercentOutput, left * -SpeedModifier);
-		FrontRight.set(ControlMode.PercentOutput, right * SpeedModifier);
-		RearRight.set(ControlMode.PercentOutput, right * SpeedModifier);
+		//FrontLeft.set(ControlMode.PercentOutput,left *  -SpeedModifier);
+		//RearLeft.set(ControlMode.PercentOutput, left * -SpeedModifier);
+		FrontRight.set(right * SpeedModifier);
+		//RearRight.set(ControlMode.PercentOutput, right * SpeedModifier);
 	
 		
 	}
@@ -109,7 +124,7 @@ public class DriveTrainSubsystem extends Subsystem {
 	public void setAllMotorMode(NeutralMode mode){
 		FrontLeft.setNeutralMode(mode);
 		RearLeft.setNeutralMode(mode);
-		FrontRight.setNeutralMode(mode);
+		//FrontRight.setNeutralMode(mode);
 		RearRight.setNeutralMode(mode);
 	}
 }

@@ -66,9 +66,9 @@ public class AutoReverseCommand extends Command {
 	public void execute() {
 		
 		
-			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, speed);
-			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, speed	);
-			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, -(speed));
+			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,speed);
+			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, speed);
+			Robot.kDriveTrainSubsystem.FrontRight.set(-speed);
 			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, -(speed));
 			if (this.timeOut > 0 && timer.hasPeriodPassed(this.timeOut)){
 				isFinished = true;

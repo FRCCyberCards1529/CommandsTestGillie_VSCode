@@ -23,9 +23,9 @@ public class ToAutoline extends InstantCommand {
     	Timer timer= new Timer();
     	timer.start();
     	while (timer.get()<2) {
-			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, -.5);
+			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,-.5);
 			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput,-.5);
-			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput,.5);
+			Robot.kDriveTrainSubsystem.FrontRight.set(.5);
 			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput,.5);
 			
 			

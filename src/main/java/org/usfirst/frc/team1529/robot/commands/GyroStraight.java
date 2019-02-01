@@ -69,9 +69,9 @@ public class GyroStraight extends Command {
     protected void execute() {
 	    	Robot.kDriveTrainSubsystem.gyro.getAngle();
     		//double adjusted = speed+findError();
-	    	Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, -speed+findError());
-	    	Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, speed+findError());
-	    	Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, -speed+findError());
+	    	Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,-speed+findError());
+	    	Robot.kDriveTrainSubsystem.FrontRight.set(speed+findError());
+	    	Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput,-speed+findError());
 	    	Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, speed+findError());
 	    	
 	    	if(Math.abs(Robot.kDriveTrainSubsystem.enc.getDistance()) > distance){
@@ -90,8 +90,8 @@ public class GyroStraight extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, 0);
-    	Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, 0);
+    	Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,0);
+    	Robot.kDriveTrainSubsystem.FrontRight.set(0);
     	Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, 0);
     	Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, 0);
     	
