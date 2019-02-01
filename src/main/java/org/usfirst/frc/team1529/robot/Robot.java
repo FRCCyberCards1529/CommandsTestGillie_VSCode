@@ -81,6 +81,7 @@ public class Robot extends TimedRobot {
 		m_chooser.addDefault("Default Auto", "DEFAULT");
 		m_chooser.addObject("Left Scale", "LEFTSCALE");
 		m_chooser.addObject("Right Scale", "RIGHTSCALE");		
+		system.println("Enc: ", kDriveTrainSubsystem.enc.getDistance());
 		SmartDashboard.putData("Auto mode chooser", m_chooser);
 		kDriveTrainSubsystem.gyro.calibrate();
 		Robot.kDriveTrainSubsystem.enc.reset();

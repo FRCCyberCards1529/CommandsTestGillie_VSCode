@@ -81,8 +81,8 @@ public class DriveTrainSubsystem extends Subsystem {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 		
-		enc.setDistancePerPulse((6*3.14159)/360);
-		climbEnc.setDistancePerPulse((((1.25*3.14159)/360)/36)*-4);
+		public enc.setDistancePerPulse((6*3.14159)/360);
+		public climbEnc.setDistancePerPulse((((1.25*3.14159)/360)/36)*-4);
 		//set pulse for climbEnc
 		
 	}
