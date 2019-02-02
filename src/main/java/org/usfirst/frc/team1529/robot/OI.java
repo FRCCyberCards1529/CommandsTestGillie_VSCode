@@ -44,7 +44,7 @@ public class OI {
 	public JoystickButton ButtonRB = new JoystickButton(Operator, 6);
 	public JoystickButton ButtonSelect = new JoystickButton(Operator, 7);
 	public JoystickButton ButtonStart = new JoystickButton(Operator, 8);
-			// TODO Auto-generated constructor stub
+	// TODO Auto-generated constructor stub
 	//Joystick code
 	//Removed to add xbox support
 

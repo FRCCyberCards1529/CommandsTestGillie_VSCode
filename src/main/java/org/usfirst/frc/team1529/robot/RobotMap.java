@@ -18,5 +18,6 @@ import edu.wpi.first.wpilibj.Victor;
 
 
 public class RobotMap {
-	
+    int ElevatorMotorPort = 1;
+    
 }
