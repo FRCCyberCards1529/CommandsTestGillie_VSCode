@@ -24,14 +24,15 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.CANSparkMax.*;
+// import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+// import com.revrobotics.CANSparkMax.*;
 
 
-/**
+ /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
 public class DriveTrainSubsystem extends Subsystem {
+
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
@@ -46,14 +47,14 @@ public class DriveTrainSubsystem extends Subsystem {
 	
 	public double SpeedModifier = 1;
 	
-//	public WPI_VictorSPX FrontLeft = new WPI_VictorSPX(13);
-	public WPI_VictorSPX RearLeft  = new WPI_VictorSPX(16);
 	public WPI_VictorSPX FrontLeft = new WPI_VictorSPX(13);
+	public WPI_VictorSPX RearLeft  = new WPI_VictorSPX(16);
+	public WPI_VictorSPX FrontRight = new WPI_VictorSPX(20);
 	public WPI_VictorSPX RearRight = new WPI_VictorSPX(21);
 
 	//CANSparkMax Code
 	//public static final CANSparkMax.InputMode kPWM;
-	public CANSparkMax FrontRight = new CANSparkMax(20, MotorType.kBrushless);
+   //	public CANSparkMax FrontRight = new CANSparkMax(20, MotorType.kBrushless);
 
 
 
@@ -81,8 +82,8 @@ public class DriveTrainSubsystem extends Subsystem {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 		
-		public enc.setDistancePerPulse((6*3.14159)/360);
-		public climbEnc.setDistancePerPulse((((1.25*3.14159)/360)/36)*-4);
+		enc.setDistancePerPulse((6*3.14159)/360);
+		climbEnc.setDistancePerPulse((((1.25*3.14159)/360)/36)*-4);
 		//set pulse for climbEnc
 		
 	}
@@ -93,7 +94,7 @@ public class DriveTrainSubsystem extends Subsystem {
 			FrontLeft.set(ControlMode.PercentOutput,speed);
 			RearLeft.set(ControlMode.PercentOutput, speed);
 			
-			FrontRight.set(-speed);
+			FrontRight.set(ControlMode.PercentOutput,-speed);
 			RearRight.set(ControlMode.PercentOutput, -speed);
 			
         }
@@ -113,10 +114,10 @@ public class DriveTrainSubsystem extends Subsystem {
 		
 	}
 	public void drive(double left, double right){
-		//FrontLeft.set(ControlMode.PercentOutput,left *  -SpeedModifier);
-		//RearLeft.set(ControlMode.PercentOutput, left * -SpeedModifier);
-		FrontRight.set(right * SpeedModifier);
-		//RearRight.set(ControlMode.PercentOutput, right * SpeedModifier);
+		FrontLeft.set(ControlMode.PercentOutput,left *  -SpeedModifier);
+		RearLeft.set(ControlMode.PercentOutput, left * -SpeedModifier);
+		FrontRight.set(ControlMode.PercentOutput, right * SpeedModifier);
+		RearRight.set(ControlMode.PercentOutput, right * SpeedModifier);
 	
 		
 	}
@@ -124,7 +125,7 @@ public class DriveTrainSubsystem extends Subsystem {
 	public void setAllMotorMode(NeutralMode mode){
 		FrontLeft.setNeutralMode(mode);
 		RearLeft.setNeutralMode(mode);
-		//FrontRight.setNeutralMode(mode);
+		FrontRight.setNeutralMode(mode);
 		RearRight.setNeutralMode(mode);
 	}
 }

@@ -81,7 +81,7 @@ public class Robot extends TimedRobot {
 		m_chooser.addDefault("Default Auto", "DEFAULT");
 		m_chooser.addObject("Left Scale", "LEFTSCALE");
 		m_chooser.addObject("Right Scale", "RIGHTSCALE");		
-		system.println("Enc: ", kDriveTrainSubsystem.enc.getDistance());
+		//System.out.println("Enc: ", kDriveTrainSubsystem.enc.getDistance());
 		SmartDashboard.putData("Auto mode chooser", m_chooser);
 		kDriveTrainSubsystem.gyro.calibrate();
 		Robot.kDriveTrainSubsystem.enc.reset();
@@ -253,16 +253,16 @@ public class Robot extends TimedRobot {
 		//drivetrain
 
 
-			//Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,((-m_oi.leftStick.getRawAxis(1))) - ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
-			//Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) + ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
-			Robot.kDriveTrainSubsystem.FrontRight.set(((m_oi.leftStick.getRawAxis(1))) + ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
-			//Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) - ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput,((-m_oi.leftStick.getRawAxis(1))) - ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, ((-m_oi.leftStick.getRawAxis(1))) + ((-m_oi.leftStick.getRawAxis(0))) - ((-m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput,((m_oi.leftStick.getRawAxis(1))) + ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
+			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, ((m_oi.leftStick.getRawAxis(1))) - ((m_oi.leftStick.getRawAxis(0))) + ((m_oi.leftStick.getRawAxis(4))));
 			
-//			Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(1));
-//			Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(1));
-//			Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(5));   
-//			Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, m_oi.xboxL.getRawAxis(5));
-//		
+			// Robot.kDriveTrainSubsystem.FrontLeft.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(1));
+			// Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(1));
+			// Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(5));   
+			// Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(5));
+		
 		
 		
 		//hand rotation
@@ -281,8 +281,6 @@ public class Robot extends TimedRobot {
 			{
 				Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, 0);
 			}
-		
-			
 		//intake wheels	
 					if(m_oi.ButtonX.get()){
 						Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, .6);
