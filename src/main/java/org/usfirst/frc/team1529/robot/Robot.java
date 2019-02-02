@@ -20,6 +20,7 @@ import org.usfirst.frc.team1529.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team1529.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team1529.robot.subsystems.DriveTrainSubsystem;
 import org.usfirst.frc.team1529.robot.subsystems.HandSubsystem;
+import org.usfirst.frc.team1529.robot.subsystems.ElevatorSubsystem;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
@@ -53,7 +54,12 @@ public class Robot extends TimedRobot {
 	public static ClimbSubsystem kClimbSubsystem = new ClimbSubsystem();
 	public static ArmSubsystem kArmSubsystem = new ArmSubsystem();
 	public static HandSubsystem kHandSubsystem = new HandSubsystem();
+	public static ElevatorSubsystem kElevatorSubsystem = new ElevatorSubsystem();
+
+
 	CommandGroup autoDefaultCommand = new AutoDefaultCommandGroup("default");
+
+
 	//CommandGroup autoLeftCommand = new AutoLeftCommandGroup();
 	//CommandGroup autoMiddleCommand = new AutoMiddleCommandGroup();
 	//CommandGroup autoRightCommand = new AutoRightCommandGroup();
@@ -262,49 +268,50 @@ public class Robot extends TimedRobot {
 			// Robot.kDriveTrainSubsystem.FrontRight.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(1));
 			// Robot.kDriveTrainSubsystem.RearRight.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(5));   
 			// Robot.kDriveTrainSubsystem.RearLeft.set(ControlMode.PercentOutput, m_oi.leftStick.getRawAxis(5));
-		
+
+
 		
 		
 		//hand rotation
-			if(Robot.m_oi.ButtonA.get())
-			{
-				/* this is to lift arms so hooks can engage */
-				Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, .60);
-				//this.kHandSubsystem.HandRotate.set(controlmode., arg1);
-			}
-			else if(Robot.m_oi.ButtonB.get())
-			{
-					/* this is to lower arms into cube pickup/grab position */
-					Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, -.60);
-			}
-			else
-			{
-				Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, 0);
-			}
+			// if(Robot.m_oi.ButtonA.get())
+			// {
+			// 	/* this is to lift arms so hooks can engage */
+			// 	Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, .60);
+			// 	//this.kHandSubsystem.HandRotate.set(controlmode., arg1);
+			// }
+			// else if(Robot.m_oi.ButtonB.get())
+			// {
+			// 		/* this is to lower arms into cube pickup/grab position */
+			// 		Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, -.60);
+			// }
+			// else
+			// {
+			// 	Robot.kHandSubsystem.HandRotate.set(ControlMode.PercentOutput, 0);
+			// }
 		//intake wheels	
-					if(m_oi.ButtonX.get()){
-						Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, .6);
-						Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, -.6);
-						}
-							else if((m_oi.ButtonY.get())){
-								Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, -.6);
-								Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, .6);
-							}
-									else{
-										Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, 0);
-										Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, 0);
-									}
+		// 			if(m_oi.ButtonX.get()){
+		// 				Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, .6);
+		// 				Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, -.6);
+		// 				}
+		// 					else if((m_oi.ButtonY.get())){
+		// 						Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, -.6);
+		// 						Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, .6);
+		// 					}
+		// 							else{
+		// 								Robot.kHandSubsystem.LeftIntake.set(ControlMode.PercentOutput, 0);
+		// 								Robot.kHandSubsystem.RightIntake.set(ControlMode.PercentOutput, 0);
+		// 							}
 				
 			
 			
-		//intake arms	
-			if(m_oi.ButtonLB.get()){
-				Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
+		// //intake arms	
+		// 	if(m_oi.ButtonLB.get()){
+		// 		Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
 				
-			}
-				else if(m_oi.ButtonRB.get()){
-					Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kReverse);
-				}
+		// 	}
+		// 		else if(m_oi.ButtonRB.get()){
+		// 			Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kReverse);
+		// 		}
 //					else
 //						Robot.kHandSubsystem.Solenoid.set(DoubleSolenoid.Value.kForward);
 //					

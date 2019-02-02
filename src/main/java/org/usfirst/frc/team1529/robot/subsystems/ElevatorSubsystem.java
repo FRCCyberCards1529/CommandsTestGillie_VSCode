@@ -20,17 +20,17 @@ public class ElevatorSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 
-    public void gotoBottomPos(){
+    public void gotoBottomPos(double speed){
         while (isBottomLimitPressed == false) {
-            ElevatorMotor.set(-1.0);    
+            ElevatorMotor.set(speed);    
         }
             return;
             //ElevatorMotor.set(ControlMode.PercentOutput, 0);
     }
 
-    public void gotoTopPos(){
-        while (topLimit.get()) {
-            ElevatorMotor.set(1.0);    
+    public void gotoTopPos(double speed){
+        while (!topLimit.get()) {
+            ElevatorMotor.set(speed);    
         }
             ElevatorMotor.set(0.0);
             return;

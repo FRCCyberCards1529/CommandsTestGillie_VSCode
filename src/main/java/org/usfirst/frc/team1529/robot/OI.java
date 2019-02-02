@@ -7,9 +7,7 @@
 
 package org.usfirst.frc.team1529.robot;
 
-import org.usfirst.frc.team1529.robot.commands.LowerClimbCommand;
-import org.usfirst.frc.team1529.robot.commands.RaiseClimbCommand;
-import org.usfirst.frc.team1529.robot.commands.ReverseDriveCommand;
+import org.usfirst.frc.team1529.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -21,6 +19,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
+
+
+
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is an	y button on a
 	//// joystick.
@@ -44,6 +46,14 @@ public class OI {
 	public JoystickButton ButtonRB = new JoystickButton(Operator, 6);
 	public JoystickButton ButtonSelect = new JoystickButton(Operator, 7);
 	public JoystickButton ButtonStart = new JoystickButton(Operator, 8);
+
+
+
+	public OI()
+	{
+		ButtonA.whenPressed(new ElevatorRaise(1.0));
+	}
+
 	// TODO Auto-generated constructor stub
 	//Joystick code
 	//Removed to add xbox support
