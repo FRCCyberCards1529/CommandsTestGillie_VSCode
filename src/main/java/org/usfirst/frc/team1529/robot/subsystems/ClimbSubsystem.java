@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class ClimbSubsystem extends Subsystem {
-		TalonSRX Climb = new TalonSRX(3);
+		TalonSRX Climb = new TalonSRX(30);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
