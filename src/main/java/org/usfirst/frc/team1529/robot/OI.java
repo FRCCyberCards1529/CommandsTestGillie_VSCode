@@ -52,6 +52,7 @@ public class OI {
 	public OI()
 	{
 		ButtonA.whenPressed(new ElevatorRaise(1.0));
+		ButtonB.whenPressed(new ElevatorLower(1.0));
 	}
 
 	// TODO Auto-generated constructor stub

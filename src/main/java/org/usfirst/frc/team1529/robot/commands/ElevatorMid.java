@@ -4,21 +4,19 @@ import org.usfirst.frc.team1529.robot.Robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.hal.DIOJNI;
-
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ElevatorRaise extends Command {
+public class ElevatorMid extends Command {
 	private Timer ourTimer = new Timer();
 	private double speed;
 	//private double time;
 	//private int Auto_counter = 0;
 
-	public ElevatorRaise(double s) {
+	public ElevatorMid(double s) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.kElevatorSubsystem);
@@ -36,7 +34,7 @@ public class ElevatorRaise extends Command {
 		
 		System.out.println("Elevator Raise Executed..");
 		
-		Robot.kElevatorSubsystem.gotoTopPos(power);
+		Robot.kElevatorSubsystem.gotoMidPos(power);
 	}
 
 	protected boolean isFinished() {
